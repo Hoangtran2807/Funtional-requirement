@@ -90,17 +90,17 @@ char key = keypad.getKey();
     }
   }
 
-  // Look for new cards
+  // quét thẻ
   if ( ! mfrc522.PICC_IsNewCardPresent()) 
   {
     return;
   }
-  // Select one of the cards
+  
   if ( ! mfrc522.PICC_ReadCardSerial()) 
   {
     return;
   }
-  //Show UID on serial monitor
+  //hiển thị uid lên màn hình
   Serial.print("UID tag :");
   String content= "";
   byte letter;
@@ -116,7 +116,7 @@ char key = keypad.getKey();
   content.toUpperCase();
 
 
- if (content.substring(1) == "6D DF AE 21") //change here the UID of card/cards or tag/tags that you want to give access
+ if (content.substring(1) == "6D DF AE 21") //thay đổi uid của thẻ tuỳ ý
   {
     Serial.println("Access Granted");
     Serial.println();
